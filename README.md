@@ -1,63 +1,90 @@
 # pcs-front-end
 Performance Community Site Front-end 저장소입니다.
+서비스 기획부터 배포까지 모든 과정을 체험하기 위해 프로젝트를 진행하였고, 현재 진행 중입니다.
+
+> 아래는 이미지는 프로젝트를 소개하는 판넬입니다.  
+
+![image](https://user-images.githubusercontent.com/60806840/88348206-c5247000-cd87-11ea-97dc-c679f2570dcd.png)
 
 ## table of contents
-1. scss 적용
+- [기획](#기획)
+- [사용된 기술](#사용된-기술)
+- [프로젝트 목표](#프로젝트-목표)
+- [핵심 페르소나 설정](#핵심-페르소나-설정)
+- [프로토타이핑](#프로토타이핑)
+- [프론트엔드 총평](#프론트엔드-총평)
 
 
-## scss
-1. `scss`를 적용하기 위해 아래 명령어를 통해 모듈을 설치
-1. 모듈을 설치하고, style태그의 attribute로 `lang="scss"`를 추가
+## 기획
+서비스를 이용할 핵심 페르소나를 설정하고, 핵심 페르소나의 상황 속에서 요구사항을 도출하기 위한 작업을 진행했습니다.
 
-```bash
-npm i --save-dev node-sass sass-loader
-```
 
-```html
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+### 핵심 페르소나 설정
+클래식 공연 관람에 관심이 많은 페르소나를 설정하고, 프로젝트를 통해 완성된 서비스의 모습 속에서 어떠한 기능이 핵심 페르소나에게 만족감을 줄 수 있는지 고민했습니다.
 
-  p {
-    color: red;
-  }
-}
-</style>
-```
+![image](https://user-images.githubusercontent.com/60806840/88351317-d0c86480-cd90-11ea-9319-50f7ee652a33.png)
 
+### 핵심 페르소나 스토리 설정
+핵심 페르소나의 스토리 설정을 통해 서비스에 어떠한 기능이 필요한지 고민하였고, 핵심 요구사항을 정리할 수 있었습니다.
+
+![image](https://user-images.githubusercontent.com/60806840/88351338-e6d62500-cd90-11ea-8018-bf0c3aa5b891.png)
+![image](https://user-images.githubusercontent.com/60806840/88353402-45eb6800-cd98-11ea-8024-7c60c9b02f6b.png)
 
 
 
-- [참조: Vue CLI 4에서 SCSS 적용](https://m.blog.naver.com/mgveg/221900939600)
+## 사용된 기술
+
+### 기술 구조도
+[Back-end 저장소 README.md](https://github.com/imseongtae/pcs-back-end#%EC%82%AC%EC%9A%A9%EB%90%9C-%EA%B8%B0%EC%88%A0) 에 사용된 기술에 대한 내역이 잘 정리되어 있습니다.   
+> Front-end 저장소에서는 Front-end 영역에 집중해서 프로젝트 설명을 이어가겠습니다.
+
+![image](https://user-images.githubusercontent.com/60806840/88347961-1aac4d00-cd87-11ea-9e29-b8fdd60f73ee.png)
 
 
 
-## Project setup
-```
-npm install
-```
+## 프로토타이핑
+`Figma`를 이용해 프로토타입을 제작하였습니다. 이를 통해 페이지 단위별 어떠한 기능과 콘텐츠가 필요한지 고민했습니다.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+- 페이지별 레이아웃 설정, 콘텐츠 배치
+- 화면 전환 설계
+- 인터페이스 작동 방식 설정
 
-### Compiles and minifies for production
-```
-npm run build
-```
 
-### Run your unit tests
-```
-npm run test:unit
-```
+![image](https://user-images.githubusercontent.com/60806840/88351214-834bf780-cd90-11ea-924e-07d0c9147acb.png)
 
-### Lints and fixes files
-```
-npm run lint
-```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### 프로토타입
+기간에 쫓겨서 작업하다 보니 아쉬운 부분이 많았습니다. 레이아웃과 콘텐츠 배치, 화면 전환 설계 위주로 봐주시면 좋을 것 같습니다.
+
+[Figma로 제작한 프로토타입 링크](https://www.figma.com/proto/IsrM1Pntk3ao0cySFj3IqU/Wireframe-Word-Cloud?node-id=96%3A234&viewport=97%2C217%2C0.07000724971294403&scaling=min-zoom)
+
+
+
+### UX/UI
+클래식이라는 요소가 본 프로젝트의 주된 내용이고, 예술과 공연이라는 주제로 색상을 검색했을 때 보라색이 예술성, 천재성, 우울함을 상징한다고 하여, 보라색을 프로젝트 기본 색상으로 설정했습니다.  
+보라색을 기준으로 컬러 팔레트를 만들어 그 수치를 SCSS를 활용해 변수에 할당하여 사용했습니다.
+
+![image](https://user-images.githubusercontent.com/60806840/88351230-8d6df600-cd90-11ea-8af0-e234d77668e2.png)
+
+
+
+## 프론트엔드 총평
+![image](https://user-images.githubusercontent.com/60806840/88351272-a5457a00-cd90-11ea-80cf-2705b8ad6405.png)
+
+### 중요한 결정사항 회고
+- SCSS의 중첩과 `&`과 같은 연산자 부분은 실수 하나만 허용하더라도 SCSS에 대한 경험치가 낮으면 쉽게 해결하기 어려운 에러를 선사합니다. 그렇지만 확실히 Vue.js와 SCSS는 궁합이 좋은 것 같습니다. 디자인 수치를 변수에 할당할 때 CSS를 그냥 사용하는 것에 비해서 훨씬 더 높은 생상선 향상을 이루었습니다.
+- UI 컴포넌트 단위로 개발을 진행하고 싶었지만 시간에 쫓겨 컴포넌트가 아닌 섹션(영영)별로 개발을 진행한 UI가 많습니다. (가령, 페이지네이션).
+- `vue-cli 4` 버전에서는 개발자 경험을 높이기 위한 다양한 시도가 많았다고 합니다. 처음 프로젝트를 시작할 때는 `Webpack`과 `vue-cli` 중 무엇을 선택할지 고민했지만(고민의 이유는 둘다 낯설기 때문), `vue-cli`가 개발자 경험이 더 좋다는 이야기를 찾아보고는 `vue-cli`를 선택했습니다.
+- 접근성 권고안을 준수하기 위해 명도대비 4.5:1 을 넘지 않기 위해 색상을 선택하고, 컬러 팔레트를 만들 때 지속해서 체크했습니다. 
+- SPA 제작에 쓰이는 프레임워크를 사용하면서 시멘틱하고, WAI-ARIA를 적극 수용하는 애플리케이션을 만들고 싶은 생각이 듭니다. 많은 공부가 필요할 것 같습니다.
+
+### 만났던 에러
+- 프로젝트를 진행하며 겪었던 에러들을 통해서 어떤 부분의 역량을 키워야 하는지 깊이 이해하는 시간을 가졌습니다.
+- 가령, 데이터의 중요성에 대해 깊이 이해했습니다.
+
+### 개선하고 싶은 점
+
+- 생산성을 높일 수 있다는 TypeScript를 활용해보고자 했습니다.
+- psc front-end ver.2 에서는 TypeScript를 적용해보고 싶습니다.
+- SPA 기반의 프레임워크들은 SSR에 대한 어려움을 갖는데 이를 해소하기 위해 Nuxt.js 를 사용해보려고 합니다.
+- 웹의 방향이 PWA로 흐르고 있다는 생각이 듭니다. PWA를 적용해봄으로써 흐름을 경험해보고 싶습니다.
