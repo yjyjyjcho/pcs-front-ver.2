@@ -6,9 +6,9 @@ module.exports = {
 		loaderOptions: {
 			scss: {
 				additionalData: `
-						@import '@/assets/scss/common.scss';
-						@import '@/assets/scss/default.scss';
-						`,
+          @import '@/assets/scss/common/variables.scss';
+          @import '@/assets/scss/common/default.scss';
+          `,
 			},
 		},
 	},
