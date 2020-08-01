@@ -1,33 +1,53 @@
 <template>
-  <div id="app">
-    <p>hello world</p>
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-  </div>
+	<div id="app">
+		<div class="app-header">
+			<app-header />
+		</div>
+
+		<div class="app-contents">
+			<!-- <router-view name="contents" class="main" /> -->
+			<router-view name="contents" class="main"></router-view>
+			<app-footer class="app-footer" />
+		</div>
+	</div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import AppHeader from '@/components/common/AppHeader.vue';
+import AppFooter from '@/components/common/AppFooter.vue';
 
 export default {
-  name: "App",
-  components: {
-    HelloWorld
-  }
+	name: 'App',
+	components: {
+		AppHeader,
+		AppFooter,
+	},
 };
 </script>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+@import '@/assets/scss/ui.scss'; // 요소별 UI를 정리한 scss
 
-  p {
-    color: red;
-  }
+#app {
+	display: flex;
+	.app-header {
+		width: 210px;
+		min-height: 100vh;
+		flex-shrink: 0;
+	}
+	.app-contents {
+		width: 805px;
+		min-width: 805px; // foooter를 위해서 min-width를 걸자
+		padding: 20px 30px;
+		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
+	}
+	.main {
+		flex-grow: 1;
+	}
+	.app-footer {
+		align-items: flex-end;
+	}
 }
 </style>
