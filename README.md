@@ -1,7 +1,6 @@
-# pcs-front-end
+# pcs-front-end ver.2
 Performance Community Site Front-end 저장소입니다.
-서비스 기획부터 배포까지 모든 과정을 체험하기 위해 프로젝트를 진행하였고, 
-현재 pcs ver.2 작업을 진행 중입니다.
+서비스 기획부터 배포까지 모든 과정을 체험하기 위해 프로젝트를 진행하였고, 현재 **pcs ver.2** 작업을 진행 중입니다.
 
 > 아래는 이미지는 프로젝트를 소개하는 판넬입니다.  
 
