@@ -1,11 +1,24 @@
 <template>
 	<div class="header">
-		<!-- 로고에 랑우터 링크 만들기 -->
+		<!-- 로고에 메인페이지로 이동하는 라우터 링크 -->
 		<h1 class="logo">
 			<router-link to="/">
 				pcs<span class="material-icons">music_note</span>
 			</router-link>
 		</h1>
+		<!-- user -->
+		<template>
+			<div class="sign-container">
+				<router-link to="/signin" class="item">
+					<span class="material-icons">login</span>
+					로그인
+				</router-link>
+				<router-link to="/signup" class="item">
+					<span class="material-icons">assignment_ind</span>
+					회원가입
+				</router-link>
+			</div>
+		</template>
 	</div>
 </template>
 
@@ -40,6 +53,20 @@ export default {
 		span {
 			font-size: $font-size-xl;
 		}
+	}
+}
+
+.sign-container {
+	display: flex;
+	justify-content: space-between;
+	font-size: 14px;
+	margin: 10px 0;
+	.item {
+		height: 40px;
+		line-height: 40px;
+	}
+	.item:last-child {
+		margin-right: 10px;
 	}
 }
 </style>
