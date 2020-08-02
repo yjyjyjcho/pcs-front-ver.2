@@ -5,8 +5,7 @@
 		</div>
 
 		<div class="app-contents">
-			<!-- <router-view name="contents" class="main" /> -->
-			<router-view name="contents" class="main"></router-view>
+			<router-view name="contents" class="main" />
 			<app-footer class="app-footer" />
 		</div>
 	</div>
