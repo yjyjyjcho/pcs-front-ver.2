@@ -3,6 +3,8 @@ import VueRouter from 'vue-router';
 
 // Routes
 import SIGN_ROUTES from './sign';
+import FACILITY_ROUTES from './facility';
+import PERFORMANCE_ROUTES from './performance';
 
 Vue.use(VueRouter);
 
@@ -19,6 +21,8 @@ const routes = [
 		},
 	},
 	...SIGN_ROUTES,
+	...FACILITY_ROUTES,
+	...PERFORMANCE_ROUTES,
 ];
 
 export default new VueRouter({
