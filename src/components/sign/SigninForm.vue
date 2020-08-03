@@ -58,6 +58,7 @@ export default {
 				})
 				.catch(err => {
 					console.log(err);
+					this.logMessage = '아이디 혹은 비밀번호가 올바르지 않습니다.';
 				});
 		},
 		initForm() {
