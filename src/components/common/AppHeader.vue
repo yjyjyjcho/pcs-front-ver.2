@@ -7,7 +7,13 @@
 			</router-link>
 		</h1>
 		<!-- user -->
-		<template>
+		<template v-if="isAuthorized">
+			<div class="user-container">
+				<strong>{{ me.nickname }}님 환영합니다.</strong>
+				<button @click="onSignout" class="btn md bg-wh">로그아웃</button>
+			</div>
+		</template>
+		<template v-else>
 			<div class="sign-container">
 				<router-link to="/signin" class="item">
 					<span class="material-icons">login</span>
@@ -23,10 +29,22 @@
 </template>
 
 <script>
+import { mapState, mapGetters, mapActions } from 'vuex';
+
 // 이 헤더 페이지에서 URL에 따라 바꿀 수는 없는 걸까?
 // AppHeader를 라우팅 처리할 수는 없을까?
 export default {
 	name: 'AppHeader',
+	computed: {
+		...mapState(['me']),
+		...mapGetters(['isAuthorized']),
+	},
+	methods: {
+		...mapActions(['signout']),
+		onSignout() {
+			this.signout();
+		},
+	},
 };
 </script>
 
@@ -53,6 +71,12 @@ export default {
 		span {
 			font-size: $font-size-xl;
 		}
+	}
+}
+.user-container {
+	margin: 20px 0;
+	button {
+		margin: 10px 0;
 	}
 }
 
