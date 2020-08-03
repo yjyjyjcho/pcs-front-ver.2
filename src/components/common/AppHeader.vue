@@ -7,24 +7,40 @@
 			</router-link>
 		</h1>
 		<!-- user -->
-		<template v-if="isAuthorized">
-			<div class="user-container">
-				<strong>{{ me.nickname }}님 환영합니다.</strong>
-				<button @click="onSignout" class="btn md bg-wh">로그아웃</button>
-			</div>
-		</template>
-		<template v-else>
-			<div class="sign-container">
-				<router-link to="/signin" class="item">
-					<span class="material-icons">login</span>
-					로그인
+		<div class="__user-container">
+			<template v-if="isAuthorized">
+				<div class="__user-section">
+					<strong>{{ me.nickname }}님 환영합니다.</strong>
+					<button @click="onSignout" class="btn md bg-wh">로그아웃</button>
+				</div>
+			</template>
+			<template v-else>
+				<div class="__sign-section">
+					<router-link to="/signin" class="item">
+						<span class="material-icons">login</span>
+						로그인
+					</router-link>
+					<router-link to="/signup" class="item">
+						<span class="material-icons">assignment_ind</span>
+						회원가입
+					</router-link>
+				</div>
+			</template>
+		</div>
+		<ul class="nav">
+			<li class="naviItem">
+				<router-link class="information" :to="{ name: 'PerformanceListPage' }">
+					<span class="material-icons">info</span>
+					공연 정보
 				</router-link>
-				<router-link to="/signup" class="item">
-					<span class="material-icons">assignment_ind</span>
-					회원가입
+			</li>
+			<li class="naviItem">
+				<router-link class="information" :to="{ name: 'FacilityListPage' }">
+					<span class="material-icons">domain</span>
+					공연 시설
 				</router-link>
-			</div>
-		</template>
+			</li>
+		</ul>
 	</div>
 </template>
 
@@ -55,7 +71,7 @@ export default {
 	height: 100vh;
 	top: 0;
 	left: 0;
-	padding: 0 20px;
+	padding: 20px;
 	color: #fff;
 	background-color: $primary-lighten-1;
 
@@ -65,7 +81,7 @@ export default {
 
 	.logo {
 		color: #fff;
-		margin-top: 20px;
+		// margin-top: 20px;
 		font-size: $font-size-xl;
 
 		span {
@@ -73,24 +89,41 @@ export default {
 		}
 	}
 }
-.user-container {
-	margin: 20px 0;
-	button {
-		margin: 10px 0;
+
+// 사용자 영역
+.__user-container {
+	height: 80px;
+
+	.__user-section {
+		margin-top: 10px;
+		height: 80px;
+		button {
+			margin-top: 10px;
+		}
+	}
+	.__sign-section {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		font-size: 14px;
+		// margin: 10px 0;
+		.item {
+			height: 80px;
+			line-height: 80px;
+		}
+		.item:last-child {
+			margin-right: 10px;
+		}
 	}
 }
 
-.sign-container {
-	display: flex;
-	justify-content: space-between;
-	font-size: 14px;
-	margin: 10px 0;
-	.item {
-		height: 40px;
-		line-height: 40px;
-	}
-	.item:last-child {
-		margin-right: 10px;
+.nav {
+	.naviItem {
+		color: #fff;
+		font-size: $font-size-md;
+		display: block;
+		width: 100%;
+		margin: 16px 0;
 	}
 }
 </style>
