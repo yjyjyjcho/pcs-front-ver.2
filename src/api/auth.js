@@ -1,7 +1,15 @@
-import { auth } from './index';
+import api from '@/api';
 
-function registerUser(userData) {
-	return auth.post('/signup', userData);
+function registerUser(newUserData) {
+	return api.post('/auth/signup', newUserData);
 }
 
-export { registerUser };
+function loginUser(userData) {
+	return api.post('/auth/signin', userData);
+}
+
+function getMyData() {
+	return api.get('/auth/me');
+}
+
+export { registerUser, loginUser, getMyData };
