@@ -32,7 +32,7 @@
 
 <script>
 export default {
-	name: 'PerformanceListItem',
+	name: 'PerformanceGallery',
 	props: {
 		paginatedData: {
 			type: Array,
