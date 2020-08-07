@@ -29,15 +29,21 @@
 		</div>
 		<ul class="nav">
 			<li class="naviItem">
-				<router-link class="information" :to="{ name: 'PerformanceListPage' }">
+				<router-link :to="{ name: 'PerformanceListPage' }">
 					<span class="material-icons">info</span>
 					공연 정보
 				</router-link>
 			</li>
 			<li class="naviItem">
-				<router-link class="information" :to="{ name: 'FacilityListPage' }">
+				<router-link :to="{ name: 'FacilityListPage' }">
 					<span class="material-icons">domain</span>
 					공연 시설
+				</router-link>
+			</li>
+			<li class="naviItem">
+				<router-link :to="{ name: 'PostListPage' }">
+					<span class="material-icons">article</span>
+					게시판
 				</router-link>
 			</li>
 		</ul>
