@@ -70,7 +70,8 @@ Performance Community Site Front-end 저장소입니다.
 클래식이라는 요소가 본 프로젝트의 주된 내용이고, 예술과 공연이라는 주제로 색상을 검색했을 때 보라색이 예술성, 천재성, 우울함을 상징한다고 하여, 보라색을 프로젝트 기본 색상으로 설정했습니다.  
 보라색을 기준으로 컬러 팔레트를 만들어 그 수치를 SCSS를 활용해 변수에 할당하여 사용했습니다.
 
-![image](https://user-images.githubusercontent.com/60806840/88351230-8d6df600-cd90-11ea-8af0-e234d77668e2.png)
+![image](https://user-images.githubusercontent.com/60806840/89641555-dffcf580-d8ec-11ea-975e-efb4f8c378aa.png)
+
 
 ## 현재 완료된 기능
 - 사용자에게 공연 정보를 제공하는 페이지 및 기능
@@ -97,9 +98,21 @@ Performance Community Site Front-end 저장소입니다.
 - 프로젝트를 진행하며 겪었던 에러를 통해서 어떤 부분의 역량을 키워야 하는지 깊이 이해했습니다.
 - 다양한 에러를 만나며 데이터의 중요성에 대해 깊이 이해했습니다.
 
-### 개선하고 싶은 점
+### pcs front-end ver.2 개선한 점
+- 재사용 가능한 컴포넌트 단위로 작업하기 위해 노력했습니다.
+- Vuex를 잘 활용하기 위해 확장가능한 구조로 개선했습니다. `actions`, `states`, `mutaions`, `mutations-types` 등으로 **store**를 나누어었습니다.
+- routes에 대한 복잡도를 낮추기 위해 자바스크립트 `spread` 문법을 활용하여 routes를 분리했습니다. 
+- SCSS 효율을 높이기 위해 common 폴더를 만들어서 UI 별로 스타일 작업을 진행했습니다.
+- 파일을 구조적으로 정리하기 위해 노력했습니다. post, facility, performance 등 관련된 UI, API에 대해 폴더를 나누어 작업했습니다.
 
-- 아래는 psc front-end ver.2 에서 도입하기 위해 고려 중인 기술입니다.
-- pcs ver.2에서는 `TypeScript`를 적용해보고 싶지만, IDE의 강력한 지원을 받기 위해 Vue의 SFC 방식을 이용하지 않으면 단순히 타입체크를 위한 `TypeScript`의 적용이 됩니다.
-- SPA 기반의 프레임워크들은 SSR에 대한 어려움을 갖는데 이를 해소하기 위해 Nuxt.js 를 사용해보려고 합니다.
-- 웹의 방향이 PWA로 흐르고 있다는 생각이 듭니다. PWA를 적용해봄으로써 흐름을 경험해보고 싶습니다.
+
+### pcs front-end ver.2 개선하고 싶은 점
+아래는 pcs front-end ver.2 개선하여, psc front-end ver.3 에서 도입하기 위해 고려 중인 기술입니다.
+
+- pcs ver.2에서는 `TypeScript`를 적용해보고 싶었지만, Vue에서 적극적으로 `TypeScript`를 사용하기 위해선 데코레이터 문법을 사용해야 하는 점이 어려움이었습니다. 또한 IDE의 강력한 지원을 받기 위해 Vue의 SFC 방식을 이용하지 않고, `.vue` 확장자 파일을 `html, css, ts`로 쪼개면 파일 구조의 복잡도가 높아지므로 도입을 미루었습니다.
+- Vue에서 데코레이터 문법을 사용하지 않으면 단순히 타입체크를 위한 `TypeScript`의 적용이 됩니다.
+- SPA 기반의 프레임워크들은 SSR에 대한 어려움을 갖는데 이를 해소하기 위해 **Nuxt.js** 를 사용해보려고 합니다.
+- 웹의 방향이 **PWA**로 흐르고 있다는 생각이 듭니다. PWA를 적용해봄으로써 흐름을 경험해보고 싶습니다.
+
+---
+
