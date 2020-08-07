@@ -5,6 +5,7 @@ import VueRouter from 'vue-router';
 import SIGN_ROUTES from './sign';
 import FACILITY_ROUTES from './facility';
 import PERFORMANCE_ROUTES from './performance';
+import POST_ROUTES from './post';
 
 Vue.use(VueRouter);
 
@@ -23,6 +24,7 @@ const routes = [
 	...SIGN_ROUTES,
 	...FACILITY_ROUTES,
 	...PERFORMANCE_ROUTES,
+	...POST_ROUTES,
 ];
 
 export default new VueRouter({
