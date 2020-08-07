@@ -43,7 +43,14 @@ export default {
 		flex-direction: column;
 	}
 	.main {
+		margin: 20px auto 0;
 		flex-grow: 1;
+		// 각 페이지의 title
+		h2 {
+			margin-bottom: 20px;
+			font-size: 2rem;
+			color: $primary;
+		}
 	}
 	.app-footer {
 		align-items: flex-end;
