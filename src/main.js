@@ -16,10 +16,16 @@ const init = () => {
 	}
 };
 
-init().then(() => {
-	new Vue({
-		router,
-		store,
-		render: h => h(App),
-	}).$mount('#app');
-});
+init()
+	.then(() => {
+		new Vue({
+			router,
+			store,
+			render: h => h(App),
+		}).$mount('#app');
+	})
+	.catch(err => {
+		// 유효기간이 만료된 토큰 처리
+		console.log(err);
+		store.dispatch('signout');
+	});
