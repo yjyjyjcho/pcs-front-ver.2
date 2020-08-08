@@ -12,6 +12,7 @@ import {
 	SET_MY_INFO,
 	DESTROY_ACCESS_TOKEN,
 	DESTROY_MY_INFO,
+	FETCH_POST,
 } from './mutations-types';
 
 export default {
@@ -37,5 +38,8 @@ export default {
 	},
 	[DESTROY_MY_INFO](state) {
 		state.me = null;
+	},
+	[FETCH_POST](state, post) {
+		state.post = post;
 	},
 };
