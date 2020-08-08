@@ -1,7 +1,7 @@
 <template>
 	<div class="wrapper">
 		<h2>공연 정보</h2>
-		<LoadingSpinner v-if="isLoading"></LoadingSpinner>
+		<loading-spinner v-if="isLoading" />
 		<template v-else>
 			<!-- Tabmenu -->
 			<AppTab

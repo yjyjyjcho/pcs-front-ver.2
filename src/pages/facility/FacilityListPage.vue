@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<h2>시설 정보</h2>
-		<LoadingSpinner v-if="isLoading" />
+		<loading-spinner v-if="isLoading" />
 		<template v-else>
 			<facility-list :facilities="facilities" />
 		</template>

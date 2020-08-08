@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<h2>시설 상세 페이지</h2>
-		<LoadingSpinner v-if="isLoading"></LoadingSpinner>
+		<loading-spinner v-if="isLoading" />
 		<template v-else>
 			<section class="info-section">
 				<h2 class="prfm-title">
