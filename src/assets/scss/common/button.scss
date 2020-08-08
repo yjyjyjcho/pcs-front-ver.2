@@ -66,3 +66,13 @@
     transition: all 250ms linear;
   }
 }
+
+.btn-container {
+  text-align: right;
+  * {
+    // 버튼간 높낮이 틀어짐 방지하기 위해
+    vertical-align: middle;
+    margin: 0 2px;
+
+  }
+}
