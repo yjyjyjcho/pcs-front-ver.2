@@ -8,8 +8,8 @@ function loginUser(userData) {
 	return api.post('/auth/signin', userData);
 }
 
-function getMyData() {
+function getMyInfo() {
 	return api.get('/auth/me');
 }
 
-export { registerUser, loginUser, getMyData };
+export { registerUser, loginUser, getMyInfo };
