@@ -1,0 +1,27 @@
+### index Post
+GET http://localhost:3000/posts
+### read Post
+GET http://localhost:3000/posts/1
+
+
+### index User
+GET http://localhost:3000/users
+
+### Signup
+POST http://localhost:3000/auth/signup HTTP/1.1
+content-type: application/json
+
+{
+  "email": "haemil7@gmail.com",
+  "password": "1234",
+  "nickname": "ham7"
+}
+
+### Signin
+# POST http://localhost:3000/auth/signin HTTP/1.1
+# content-type: application/x-www-form-urlencoded
+
+# {
+#   "email": "haemil7@gmail.com",
+#   "password": "1234",
+# }
