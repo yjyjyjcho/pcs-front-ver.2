@@ -13,7 +13,7 @@ const FACILITY_ROUTES = [
 			contents: () => import('@/pages/facility/FacilityDetailPage.vue'),
 		},
 		props: {
-			default: true,
+			contents: true,
 		},
 	},
 ];

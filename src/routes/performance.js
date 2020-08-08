@@ -13,7 +13,7 @@ const PERFORMANCE_ROUTES = [
 			contents: () => import('@/pages/performance/PerformanceDetailPage.vue'),
 		},
 		props: {
-			default: true,
+			contents: true,
 		},
 	},
 ];
