@@ -16,7 +16,7 @@
 import LoadingSpinner from '@/components/common/LoadingSpinner.vue';
 import PostList from '@/components/post/PostList.vue';
 
-import { fetchPosts } from '@/api/posts';
+import { mapActions, mapState } from 'vuex';
 
 export default {
 	name: 'PostListPage',
@@ -26,20 +26,23 @@ export default {
 	},
 	data() {
 		return {
-			posts: [],
 			isLoading: false,
 		};
 	},
 	created() {
 		this.fetchData();
 	},
+	computed: { ...mapState(['posts']) },
 	methods: {
+		...mapActions(['fetchPosts']),
 		async fetchData() {
-			this.isLoading = true;
-			const { data } = await fetchPosts();
-			this.posts = data;
-			// console.log(data);
-			this.isLoading = false;
+			try {
+				this.isLoading = true;
+				await this.fetchPosts();
+				this.isLoading = false;
+			} catch (error) {
+				console.log(error);
+			}
 		},
 	},
 };
