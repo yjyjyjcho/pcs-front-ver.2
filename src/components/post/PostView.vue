@@ -8,6 +8,17 @@
 		<p>
 			{{ post.contents }}
 		</p>
+
+		<div v-if="myPost" class="btn-container">
+			<router-link
+				class="btn md"
+				:to="{ name: 'PostEditPage', params: { postId: post.id } }"
+				>수정</router-link
+			>
+			<button @click="onDelete" class="btn md" type="button">
+				삭제
+			</button>
+		</div>
 	</div>
 </template>
 
@@ -24,6 +35,15 @@ export default {
 				const isValidContents = post.contents && post.contents.length;
 				return isValidPostId && isValidTitle && isValidContents;
 			},
+		},
+		myPost: {
+			type: Boolean,
+			required: true,
+		},
+	},
+	methods: {
+		onDelete() {
+			this.$emit('delete', this.post.id);
 		},
 	},
 };
