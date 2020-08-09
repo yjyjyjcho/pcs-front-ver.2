@@ -35,7 +35,7 @@ export default {
 	methods: {
 		...mapActions(['fetchPost', 'editPost']),
 		async onSubmit(editedPost) {
-			this.editPost({ postId: this.postId, editedPost });
+			await this.editPost({ postId: this.postId, editedPost });
 			this.$router.push({ name: 'PostViewPage', params: this.postId });
 		},
 	},
