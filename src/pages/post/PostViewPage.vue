@@ -39,11 +39,11 @@ export default {
 	},
 	methods: {
 		...mapActions(['fetchPost']),
-		fetchData() {
+		async fetchData() {
 			try {
-				// route에 params로 path 자원에 접근하는 대신 할당
+				// path 자원에 접근하는 대신 route에 params의 자원을 할당
 				// this.postId = this.$route.params.postId;
-				this.fetchPost(this.postId);
+				await this.fetchPost(this.postId);
 			} catch (error) {
 				console.log(error);
 			}
