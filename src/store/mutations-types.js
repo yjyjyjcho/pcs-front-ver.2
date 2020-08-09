@@ -15,3 +15,4 @@ export const FETCH_POST = 'FETCH_POST';
 export const FETCH_POST_LIST = 'FETCH_POST_LIST';
 export const CREATE_POST = 'CREATE_POST';
 export const EDIT_POST = 'EDIT_POST';
+export const DELETE_POST = 'DELETE_POST';

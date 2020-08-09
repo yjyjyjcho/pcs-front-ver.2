@@ -15,6 +15,7 @@ import {
 	FETCH_POST,
 	FETCH_POST_LIST,
 	EDIT_POST,
+	DELETE_POST,
 } from './mutations-types';
 
 export default {
@@ -49,5 +50,8 @@ export default {
 	},
 	[EDIT_POST](state, post) {
 		state.post = post;
+	},
+	[DELETE_POST](state) {
+		state.post = null;
 	},
 };
