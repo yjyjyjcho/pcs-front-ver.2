@@ -8,22 +8,26 @@
 <script>
 import PostCreateForm from '@/components/post/PostCreateForm.vue';
 
-// api
-import { createPost } from '@/api/posts';
+import { mapActions, mapState } from 'vuex';
 
 export default {
 	name: 'PostCreatePage',
 	components: {
 		PostCreateForm,
 	},
+	computed: {
+		...mapState(['post']),
+	},
 	methods: {
-		async onSubmit(newPostData) {
+		...mapActions(['createPost']),
+		async onSubmit(newPost) {
 			try {
 				// emit으로 넘어온 PostData를 비구조화 할당 없이 사용
-				const { data } = await createPost(newPostData);
+				// await을 통해 순서 보장이 필요함
+				await this.createPost(newPost);
 				this.$router.push({
 					name: 'PostViewPage',
-					params: { postId: data.id },
+					params: { postId: this.post.id },
 				});
 			} catch (error) {
 				console.log(error);
