@@ -13,6 +13,7 @@ import {
 	DESTROY_ACCESS_TOKEN,
 	DESTROY_MY_INFO,
 	FETCH_POST,
+	FETCH_POST_LIST,
 	EDIT_POST,
 } from './mutations-types';
 
@@ -42,6 +43,9 @@ export default {
 	},
 	[FETCH_POST](state, post) {
 		state.post = post;
+	},
+	[FETCH_POST_LIST](state, posts) {
+		state.posts = posts;
 	},
 	[EDIT_POST](state, post) {
 		state.post = post;
