@@ -1,0 +1,364 @@
+/**
+* 포스트 리스트 페이지
+*/
+
+.post-list-page {
+  width: 100%;
+
+  & > div {
+    background-color: #fff;
+    box-shadow: 0 4px 10px -4px rgba(0, 0, 0, 0.2);
+
+    table {
+      width: 100%;
+
+      thead {
+        font-size: $font-size-md;
+        font-weight: normal;
+        color: #fff;
+        background-color: $primary;
+        // background-color: $primary-lighten-1;
+
+        th {
+          position: relative;
+          padding: 10px;
+        }
+        // 영역을 구분하기 위한 vertical bar
+        th:after {
+          content:'|';
+          position: absolute;
+          right: 0;
+          color: $primary-lighten-5;
+        }
+        th:last-child:after {
+          content: '';
+        }
+      }
+      tbody {
+        td {
+          padding: 20px;
+          font-weight: normal;
+          border-bottom: 1px solid #ededed;
+          text-align: center;
+          // 게시글 제목 hover에 대한 스타일
+          a {
+            cursor: pointer;
+            &:hover {
+              text-decoration: underline $gray-scale-4;
+              color: $gray-scale-6;
+            }
+          }
+        }
+        td:nth-child(2) {
+          // 게시글 제목은 letf 정렬
+          text-align: left;
+        }
+      }
+
+    }
+  }
+  & > a.btn {
+    float: right;
+    margin-top: 13px;
+    // color: #fff;
+  }
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
+
+/**
+* 포스트 상세보기 페이지
+*/
+.post-view-page {
+  padding: 40px 30px 60px;
+  margin: 60px auto 0;
+  background-color: #fff;
+  
+  & > p {
+    text-align: center;
+    margin: 1rem 0;
+  }
+  & .post-view {
+    box-shadow: 0px 4px 6px 4px rgba(0, 0, 0, 0.2);
+    padding: 40px 30px 60px;
+    margin-bottom: 15px;
+  }
+
+  & .post-view > div {
+    padding: 20px;
+    text-align: left;
+    font-size: 14px;
+    border-bottom: 2px solid $gray-scale-4;
+  }
+  // & .post-view > div > h2 {
+  //   font-size: 24px;
+  // }
+  & .post-view > div > span {
+    display: block;
+    margin-bottom: 2px;
+    color: $gray-scale-5;
+  }
+  & .post-view > div > strong {
+    font-weight: normal;
+    color: $gray-scale-5;
+  }
+  & .post-view > p {
+    margin-bottom: 20px;
+    padding: 20px;
+    text-align: left;    
+  }
+
+}
+
+// .post-view-page a, .post-view-page button {
+//   display: inline-block;
+//   padding: .5rem 1.75rem;
+//   background-color: #414141;
+//   border-radius: .25rem;
+//   color: #fff;
+//   text-decoration: none;
+//   transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+// }
+// .post-view-page > a:hover, .post-view-page > button:hover {
+//   background-color: #181818;
+// }
+
+.post-view-page > ul {
+  text-align: left;
+  margin-top: 20px;
+  border-top: 1px solid #ced4da;
+}
+.post-view-page > ul > li {
+  overflow: hidden;
+  padding: 20px;
+  border-bottom: 1px solid #ced4da;
+}
+.post-view-page > .comments .comment-item {
+  position: relative;
+}
+.post-view-page > .comments .comment-item > strong {
+  margin-right: 5px;
+}
+.post-view-page > .comments .comment-item > span {
+  font-size: 14px;
+  vertical-align: bottom;
+}
+.post-view-page > .comments .comment-item > p,
+.post-view-page > .comments .comment-item textarea,
+.post-view-page > .comments .comment-item textarea + button {
+  margin-top: .5rem;
+}
+.post-view-page > .comments .comment-item textarea {
+  display: inline-block;
+  border: 1px solid #868e96;
+  width: 85%;
+  padding: 10px;
+  height: 60px;
+  vertical-align: top;
+  font-size: 14px;
+}
+.post-view-page > .comments .comment-item textarea + button {
+  display: inline-block;
+  border: 1px solid #666;
+  padding: 10px;
+  width: 14%;
+  height: 60px;
+  background-color: #414141;
+  color: white;
+  border-radius: .25rem;
+  font-size: 1rem;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.post-view-page > .comments .comment-item textarea + button:hover {
+  background-color: #181818;
+}
+.post-view-page > .comments .comment-item > ul {
+  position: absolute;
+  right: 0;
+  top: 0;
+  overflow: hidden;
+}
+.post-view-page > .comments .comment-item > ul li {
+  position: relative;
+  float: left;
+  padding: 0 10px 0 0;
+  margin: 0 10px 0 0;
+}
+.post-view-page > .comments .comment-item > ul li:after {
+  position: absolute;
+  right: 0;
+  top: 2px;
+  content: "|";
+  color: #868e96;
+}
+.post-view-page > .comments .comment-item > ul li:last-child {
+  margin-right: 0;
+  padding-right: 0;
+}
+.post-view-page > .comments .comment-item > ul li:last-child:after {
+  content: "";
+}
+.post-view-page > .comments .comment-item > ul li button {
+  color: #868e96;
+}
+.post-view-page > .comments .comment-item > ul li button:hover {
+  color: #2c3e50;
+}
+.comment-form {
+  position: relative;
+  margin-top: 20px;
+  padding-right: 100px;
+  overflow: hidden;
+}
+.comment-form textarea {
+  width: 100%;
+  height: 60px;
+  border: 1px solid #868e96;
+  padding: 10px;
+  font-size: 14px;
+}
+.comment-form button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 60px;
+  width: 96px;
+  background-color: #414141;
+  color: #fff;
+  font-size: 16px;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.comment-form button:hover {
+  background-color: #181818;
+}
+.comments button {
+  background-color: transparent;
+  color: black;
+  font-size: 12px;
+  padding: 0;
+  border-radius: 0;
+  transition: opacity 0.3s ease-in-out;
+  outline: 0;
+}
+
+/**
+* 포스트 생성 페이지
+*/
+.post-create-page {
+  padding: 40px 30px 60px;
+  margin: 60px auto 0;
+  background-color: #fff;
+  // border: 1px solid #ededed;
+
+  & .post-create {
+    // box-shadow: 0 4px 10px -1px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 4px 6px 4px rgba(0, 0, 0, 0.2);
+    padding: 40px 30px 60px;
+    margin-bottom: 15px;
+  }
+  & form fieldset input {
+    margin-bottom: 8px;
+  }
+  & label {
+    display: inline-block;
+    width: 100%;
+    text-align: left;
+    font-size: 16px;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  & form fieldset input[type="text"],
+  & form fieldset textarea {
+    // box-sizing;
+    box-sizing: border-box;
+
+    width: 100%;
+    margin-bottom: 20px;
+    color: #495057;
+    border: 1px solid $gray-scale-2;
+    border-radius: .25rem;
+    font-size: 16px;
+  }
+  & form fieldset input[type="text"]:focus,
+  & form fieldset textarea:focus {
+    outline: none;
+    border: 2px solid $primary-lighten-2;
+    box-shadow: 0 0 3px $primary-lighten-3;
+  }
+  // input의 크기
+  & form fieldset input[type="text"] {
+    height: calc(1.5rem + .75rem + 2px);
+  }
+  & form fieldset textarea {
+    padding: 0.6rem .5rem;
+  }
+  & form fieldset input[type="text"]::placeholder,
+  & form fieldset textarea::placeholder {
+    font-size: 16px;
+    color: $gray-scale-5;
+    padding: 5px;
+  }
+}
+
+/**
+* 포스트 수정 페이지
+*/
+.post-edit-page {
+  // width: 940px;
+  padding: 40px 30px 60px;
+  margin: 60px auto 0;
+  background-color: #fff;
+  // border: 1px solid #ededed;
+
+  & .post-edit {
+    box-shadow: 0 4px 10px -1px rgba(0, 0, 0, 0.2);
+    padding: 40px 30px 60px;
+    margin-bottom: 15px;
+  }
+
+  & form fieldset input {
+    margin-bottom: 8px;
+  }
+  & label {
+    display: inline-block;
+    width: 100%;
+    text-align: left;
+    font-size: 16px;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  & form fieldset input[type="text"],
+  & form fieldset textarea {
+    // box-sizing;
+    // box-sizing: border-box;
+    width: 100%;
+    margin-bottom: 20px;
+    color: #495057;
+    border: 1px solid $gray-scale-2;
+    border-radius: .25rem;
+    font-size: 16px;
+  }
+  & form fieldset input[type="text"]:focus,
+  & form fieldset textarea:focus {
+    outline: none;
+    border: 2px solid $primary-lighten-2;
+    box-shadow: 0 0 3px $primary-lighten-3;
+  }
+  // input의 크기
+  & form fieldset input[type="text"] {
+    height: calc(1.5rem + .75rem + 2px);
+  }
+  & form fieldset textarea {
+    padding: 0.6rem .5rem;
+  }
+  & form fieldset input[type="text"]::placeholder,
+  & form fieldset textarea::placeholder {
+    font-size: 16px;
+    color: $gray-scale-5;
+    padding: 5px;
+  }
+}
