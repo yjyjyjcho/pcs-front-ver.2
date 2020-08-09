@@ -25,6 +25,12 @@ const routes = [
 	...FACILITY_ROUTES,
 	...PERFORMANCE_ROUTES,
 	...POST_ROUTES,
+	{
+		path: '*',
+		components: {
+			contents: () => import('@/pages/NotFoundPage.vue'),
+		},
+	},
 ];
 
 export default new VueRouter({
