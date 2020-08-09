@@ -43,6 +43,7 @@ export default {
 		flex-direction: column;
 	}
 	.main {
+		width: 100%;
 		margin: 20px auto 0;
 		flex-grow: 1;
 		// 각 페이지의 title
