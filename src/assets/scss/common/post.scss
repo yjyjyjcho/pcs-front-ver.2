@@ -90,13 +90,11 @@
 
   & .post-view > div {
     padding: 20px;
-    text-align: left;
     font-size: 14px;
-    border-bottom: 2px solid $gray-scale-4;
+    // text-align: left;
+    // border-bottom: 2px solid $gray-scale-4;
   }
-  // & .post-view > div > h2 {
-  //   font-size: 24px;
-  // }
+  
   & .post-view > div > span {
     display: block;
     margin-bottom: 2px;
@@ -109,7 +107,9 @@
   & .post-view > p {
     margin-bottom: 20px;
     padding: 20px;
-    text-align: left;    
+    text-align: left;
+    border-bottom: 1.5px solid $gray-scale-1;
+
   }
 
 }
