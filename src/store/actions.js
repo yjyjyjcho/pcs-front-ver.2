@@ -4,8 +4,9 @@ import {
 	DESTROY_ACCESS_TOKEN,
 	DESTROY_MY_INFO,
 	FETCH_POST,
-	EDIT_POST,
 	FETCH_POST_LIST,
+	EDIT_POST,
+	DELETE_POST,
 } from './mutations-types';
 
 // Auth
@@ -15,6 +16,7 @@ import {
 	fetchPostsAPI,
 	createPostAPI,
 	editPostAPI,
+	deletePostAPI,
 } from '@/api/posts';
 
 export default {
@@ -72,5 +74,10 @@ export default {
 			commit(EDIT_POST, res.data);
 		});
 		// catch에 대한 로직이 필요한지 점검
+	},
+	deletePost({ commit }, postId) {
+		return deletePostAPI(postId).then(() => {
+			commit(DELETE_POST);
+		});
 	},
 };
