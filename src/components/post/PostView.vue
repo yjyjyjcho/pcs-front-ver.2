@@ -9,7 +9,7 @@
 			{{ post.contents }}
 		</p>
 
-		<div v-if="myPost" class="btn-container">
+		<div v-if="isMyPost" class="btn-container">
 			<router-link
 				class="btn md"
 				:to="{ name: 'PostEditPage', params: { postId: post.id } }"
@@ -36,7 +36,7 @@ export default {
 				return isValidPostId && isValidTitle && isValidContents;
 			},
 		},
-		myPost: {
+		isMyPost: {
 			type: Boolean,
 			required: true,
 		},
