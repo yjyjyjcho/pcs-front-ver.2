@@ -73,6 +73,8 @@
     // 버튼간 높낮이 틀어짐 방지하기 위해
     vertical-align: middle;
     margin: 0 2px;
-
   }
+  // 우선 순위에 의해 영향을 받을 수 있음
+  // border: none;
+  // border-bottom: 2px solid red;
 }
