@@ -4,11 +4,12 @@ import {
 	DESTROY_ACCESS_TOKEN,
 	DESTROY_MY_INFO,
 	FETCH_POST,
+	EDIT_POST,
 } from './mutations-types';
 
 // Auth
 import { loginUser, getMyInfo } from '@/api/auth';
-import { fetchPostAPI } from '@/api/posts';
+import { fetchPostAPI, editPostAPI } from '@/api/posts';
 
 export default {
 	signin({ commit }, payload) {
@@ -46,5 +47,12 @@ export default {
 			// FETCH_POST 변이 실행과 함께 post 데이터 전달
 			commit(FETCH_POST, res.data);
 		});
+	},
+	editPost({ commit }, payload) {
+		const { postId, editedPost } = payload;
+		return editPostAPI(postId, editedPost).then(res => {
+			commit(EDIT_POST, res.data);
+		});
+		// catch에 대한 로직이 필요한지 점검
 	},
 };
