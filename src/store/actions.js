@@ -5,11 +5,17 @@ import {
 	DESTROY_MY_INFO,
 	FETCH_POST,
 	EDIT_POST,
+	FETCH_POST_LIST,
 } from './mutations-types';
 
 // Auth
 import { loginUser, getMyInfo } from '@/api/auth';
-import { fetchPostAPI, editPostAPI } from '@/api/posts';
+import {
+	fetchPostAPI,
+	fetchPostsAPI,
+	createPostAPI,
+	editPostAPI,
+} from '@/api/posts';
 
 export default {
 	signin({ commit }, payload) {
@@ -45,6 +51,18 @@ export default {
 	fetchPost({ commit }, postId) {
 		return fetchPostAPI(postId).then(res => {
 			// FETCH_POST 변이 실행과 함께 post 데이터 전달
+			commit(FETCH_POST, res.data);
+		});
+	},
+	fetchPosts({ commit }) {
+		return fetchPostsAPI().then(res => {
+			// FETCH_POST 변이 실행과 함께 post 데이터 전달
+			commit(FETCH_POST_LIST, res.data);
+		});
+	},
+	createPost({ commit }, newPost) {
+		return createPostAPI(newPost).then(res => {
+			// Backend 데이터 생성 요청과 함께 FETCH_POST 변이 실행하여 post state에 데이터 저장
 			commit(FETCH_POST, res.data);
 		});
 	},
