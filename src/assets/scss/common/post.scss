@@ -7,10 +7,10 @@
 
   & > div {
     background-color: #fff;
-    box-shadow: 0 4px 10px -4px rgba(0, 0, 0, 0.2);
-
+    // box-shadow: 0 4px 10px -4px rgba(0, 0, 0, 0.2);
     table {
       width: 100%;
+      box-shadow: 1px 4px 10px -4px rgba(0, 0, 0, 0.2);
 
       thead {
         font-size: $font-size-md;
