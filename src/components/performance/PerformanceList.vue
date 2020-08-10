@@ -85,12 +85,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.prf-list {
-	li {
-		font-size: 12px;
-	}
-}
-
 .btn-cover {
 	margin: 1rem 0;
 	text-align: center;
