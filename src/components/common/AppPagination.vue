@@ -66,11 +66,11 @@ export default {
 	methods: {
 		prevPage() {
 			this.pageNum -= 1;
-			this.$emit('onPage', this.paginatedData);
+			this.$emit('onPaginate', this.paginatedData);
 		},
 		nextPage() {
 			this.pageNum += 1;
-			this.$emit('onPage', this.paginatedData);
+			this.$emit('onPaginate', this.paginatedData);
 		},
 	},
 };
