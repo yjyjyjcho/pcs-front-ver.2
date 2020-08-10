@@ -1,0 +1,97 @@
+<template>
+	<!-- pagination button -->
+	<div class="pagination">
+		<button
+			:disabled="pageNum === 0"
+			@click="prevPage"
+			class="page-btn"
+			type="button"
+		>
+			<span class="material-icons">
+				navigate_before
+			</span>
+			<!-- 이전 -->
+		</button>
+		<span class="page-count">{{ pageNum + 1 }} / {{ pageCount }} page</span>
+		<button
+			:disabled="pageNum >= pageCount - 1"
+			@click="nextPage"
+			class="page-btn"
+			type="button"
+		>
+			<span class="material-icons">
+				navigate_next
+			</span>
+			<!-- 다음 -->
+		</button>
+	</div>
+</template>
+
+<script>
+export default {
+	name: 'AppPagination',
+	props: {
+		listData: {
+			type: Array,
+			required: true,
+		},
+		pageSize: {
+			type: Number,
+			required: false,
+			default: 7,
+		},
+	},
+	data() {
+		return {
+			pageNum: 0,
+		};
+	},
+	computed: {
+		// 최대 페이징할 개수를 구하는 함수
+		pageCount() {
+			let listLeng = this.listData.length,
+				listSize = this.pageSize,
+				page = Math.floor(listLeng / listSize);
+			if (listLeng % listSize > 0) page += 1;
+
+			return page;
+		},
+		// 한 번에 보여줄 데이터 개수를 구하는 함수
+		paginatedData() {
+			const start = this.pageNum * this.pageSize;
+			const end = start + this.pageSize;
+			return this.listData.slice(start, end);
+		},
+	},
+	methods: {
+		prevPage() {
+			this.pageNum -= 1;
+			this.$emit('onPage', this.paginatedData);
+		},
+		nextPage() {
+			this.pageNum += 1;
+			this.$emit('onPage', this.paginatedData);
+		},
+	},
+};
+</script>
+
+<style lang="scss" scoped>
+.pagination {
+	margin-top: 3rem;
+	text-align: center;
+
+	& .page-btn {
+		width: 4rem;
+		height: 2rem;
+		letter-spacing: 0.5px;
+		color: $gray-scale-0;
+		background-color: $primary;
+		border-radius: 5px;
+	}
+	.page-count {
+		padding: 0 1rem;
+		color: $gray-scale-6;
+	}
+}
+</style>
