@@ -38,13 +38,25 @@ export default {
 		pageSize: {
 			type: Number,
 			required: false,
-			default: 7,
+			default: 6,
+		},
+		// AppPagination 컴포넌트의 범용성을 위해 selectedTab 추가하고, required 값 false로 설정
+		selectedTab: {
+			type: String,
+			required: false,
 		},
 	},
 	data() {
 		return {
 			pageNum: 0,
 		};
+	},
+	watch: {
+		// watch 속성을 이용해 탭메뉴 항목이 바뀔 때마다 페이지네이션 데이터 0으로 초기화
+		// 이를 통해 1페이지로 초기화됨
+		selectedTab() {
+			this.pageNum = 0;
+		},
 	},
 	computed: {
 		// 최대 페이징할 개수를 구하는 함수
