@@ -1,12 +1,13 @@
 import api from '@/api';
 
-function getAllPerformances() {
+// 공연 목록을 조회하는 API
+function fetchPerformancesAPI() {
 	return api.get('/performances');
 }
 
-// 특정 공연 목록을 조회하는 API
-function getPerformanceDetail(item) {
-	return api.get(`/performances/${item}`);
+// 특정 공연을 조회하는 API
+function fetchPerformanceAPI(performanceId) {
+	return api.get(`/performances/${performanceId}`);
 }
 
-export { getAllPerformances, getPerformanceDetail };
+export { fetchPerformancesAPI, fetchPerformanceAPI };
