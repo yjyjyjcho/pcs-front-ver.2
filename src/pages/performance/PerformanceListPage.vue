@@ -4,13 +4,18 @@
 		<loading-spinner v-if="isLoading" />
 		<template v-else>
 			<!-- Tabmenu -->
-			<AppTab
+			<app-tab
 				v-bind:tabs="tabs"
 				:selectedTab="selectedTab"
 				v-on:@tab="onClickTab"
 			/>
+			<app-pagination
+				:selectedTab="selectedTab"
+				:list-data="tabbedPerformances"
+				@onPaginate="onPaginate"
+			/>
 			<!-- 공연 목록 -->
-			<performance-list :performanceItems="performanceItems" />
+			<performance-list :paginatedPerformances="paginatedPerformances" />
 		</template>
 	</div>
 </template>
@@ -19,8 +24,9 @@
 import LoadingSpinner from '@/components/common/LoadingSpinner.vue';
 import PerformanceList from '@/components/performance/PerformanceList.vue';
 import AppTab from '@/components/common/AppTab.vue';
+import AppPagination from '@/components/common/AppPagination';
 
-import { getAllPerformances } from '@/api/performance';
+import { mapState, mapActions } from 'vuex';
 
 export default {
 	name: 'PerformanceListPage',
@@ -28,42 +34,55 @@ export default {
 		PerformanceList,
 		LoadingSpinner,
 		AppTab,
+		AppPagination,
 	},
 	data() {
 		return {
-			performanceItems: [],
+			tabbedPerformances: [],
+			paginatedPerformances: [],
 			isLoading: false,
 			tabs: ['클래식', '뮤지컬', '연극'],
 			selectedTab: '',
 		};
 	},
-	created() {
-		this.fetchPerformanceInfo();
+	computed: {
+		...mapState(['performances']),
+	},
+	async created() {
+		await this.fetchPerformanceInfo();
 		this.selectedTab = this.tabs[0];
-		this.onClickTab(this.selectedTab); // 첫 번째 탭을 인자로 넘김
+		await this.onClickTab(this.selectedTab); // 첫 번째 탭을 인자로 넘김
 	},
 	methods: {
+		...mapActions(['fetchPerformances']),
 		async fetchPerformanceInfo() {
 			try {
 				this.isLoading = true;
-				const { data } = await getAllPerformances();
-				this.performanceItems = data;
+				await this.fetchPerformances();
 				this.isLoading = false;
-				// 데이터를 return하여 호출하는 곳에서 사용하도록 처리
-				return data;
 			} catch (error) {
 				console.log(error);
 			}
 		},
 		async onClickTab(tab) {
 			try {
-				// parameter로 넘어온 탭 이름에 해당하는 장르를 performanceItems에 할당
-				const data = await this.fetchPerformanceInfo();
+				/**
+				 * parameter로 넘어온 탭 이름에 해당하는 장르를 tabbedPerformances를 통해 분류
+				 * 데이터를 여러번 호출하지는 않는지 확인해보기
+				 */
 				this.selectedTab = tab;
-				this.performanceItems = data.filter(item => item.genrenm === tab);
+				// Array.from()을 통해 배열을 복사해야 하는지 고민했지만 정답은 filter
+				this.tabbedPerformances = await this.performances.filter(
+					performance => performance.genrenm === tab,
+				);
+				this.paginatedPerformances = this.tabbedPerformances.slice(0, 6);
 			} catch (error) {
 				console.error(error);
 			}
+		},
+		onPaginate(paginatedPerformances) {
+			// console.log(paginatedPerformances);
+			this.paginatedPerformances = paginatedPerformances;
 		},
 	},
 };
