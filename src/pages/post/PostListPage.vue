@@ -5,9 +5,11 @@
 		<!-- loding template -->
 		<template v-else>
 			<post-list :posts="paginatedPosts" />
-			<router-link class="btn md" :to="{ name: 'PostCreatePage' }">
-				글쓰기
-			</router-link>
+			<div class="btn-container">
+				<router-link class="btn md" :to="{ name: 'PostCreatePage' }">
+					글쓰기
+				</router-link>
+			</div>
 			<!-- pagination -->
 		</template>
 		<app-pagination
