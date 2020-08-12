@@ -16,6 +16,7 @@ import {
 	FETCH_POST_LIST,
 	EDIT_POST,
 	DELETE_POST,
+	FETCH_PERFORMANCE_LIST,
 } from './mutations-types';
 
 export default {
@@ -53,5 +54,8 @@ export default {
 	},
 	[DELETE_POST](state) {
 		state.post = null;
+	},
+	[FETCH_PERFORMANCE_LIST](state, performances) {
+		state.performances = performances;
 	},
 };
