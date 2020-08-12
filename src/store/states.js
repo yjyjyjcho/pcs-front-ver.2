@@ -7,4 +7,5 @@ export default {
 	post: null,
 	// Performance state
 	performances: [], // 공연 정보 목록
+	performance: null, // 공연 상세 정보
 };
