@@ -10,7 +10,11 @@
 			</router-link>
 			<!-- pagination -->
 		</template>
-		<app-pagination :list-data="posts" @onPaginate="onPaginate" />
+		<app-pagination
+			@onPaginate="onPaginate"
+			:list-data="posts"
+			:page-size="7"
+		/>
 	</div>
 </template>
 
