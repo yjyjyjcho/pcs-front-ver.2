@@ -1,104 +1,107 @@
 <template>
 	<div>
-		<!-- pagination button -->
-		<div class="btn-cover">
-			<button :disabled="pageNum === 0" @click="prevPage" class="page-btn">
-				<span class="material-icons">
-					navigate_before
-				</span>
-				<!-- 이전 -->
-			</button>
-			<span class="page-count">{{ pageNum + 1 }} / {{ pageCount }} 페이지</span>
-			<button
-				:disabled="pageNum >= pageCount - 1"
-				@click="nextPage"
-				class="page-btn"
+		<!-- Item list -->
+		<ul class="item-list">
+			<!-- 아이템에 키값을 걸어야 한다. -->
+			<li
+				class="item"
+				v-for="performance in paginatedPerformances"
+				:key="performance._id"
+				@click="moveDetail(performance.mt20id)"
 			>
-				<span class="material-icons">
-					navigate_next
-				</span>
-				<!-- 다음 -->
-			</button>
-		</div>
-
-		<!-- performance gallery list -->
-		<div>
-			<performance-gallery :paginatedData="paginatedData" />
-		</div>
+				<!-- <router-link :to="`info/${performance.mt20id}`"> -->
+				<figure
+					class="item-image"
+					:style="{ backgroundImage: 'url(' + performance.poster + ')' }"
+				></figure>
+				<div class="item-desc">
+					<h4>{{ performance.prfnm }}</h4>
+					<ul class="prf-list">
+						<li>공연장명: {{ performance.fcltynm }}</li>
+						<li>
+							공연일: {{ performance.prfpdfrom }} ~
+							{{ performance.prfpdto }}
+						</li>
+						<li>연극: {{ performance.genrenm }}</li>
+						<li>공연상태: {{ performance.prfstate }}</li>
+					</ul>
+				</div>
+				<!-- </router-link> -->
+			</li>
+		</ul>
 	</div>
 </template>
 
 <script>
-import PerformanceGallery from '@/components/performance/PerformanceGallery.vue';
-
 export default {
 	name: 'PerformanceList',
-	components: {
-		PerformanceGallery,
-	},
 	props: {
-		performanceItems: {
+		paginatedPerformances: {
 			type: Array,
 			required: true,
 		},
-		pageSize: {
-			type: Number,
-			required: false,
-			default: 6,
-		},
-	},
-	data() {
-		return {
-			pageNum: 0,
-			id: '',
-		};
-	},
-	computed: {
-		// 최대 페이징할 개수를 구하는 함수
-		pageCount() {
-			let listLeng = this.performanceItems.length,
-				listSize = this.pageSize,
-				page = Math.floor(listLeng / listSize);
-			if (listLeng % listSize > 0) page += 1;
-
-			return page;
-		},
-		// 한 번에 보여줄 데이터 개수를 구하는 함수
-		paginatedData() {
-			const start = this.pageNum * this.pageSize,
-				end = start + this.pageSize;
-			return this.performanceItems.slice(start, end);
-		},
 	},
 	methods: {
-		prevPage() {
-			this.pageNum -= 1;
-		},
-		nextPage() {
-			this.pageNum += 1;
-		},
 		moveDetail(item) {
-			console.log(item);
+			// console.log(item);
+			try {
+				this.$router.push({
+					name: 'PerformanceDetailPage',
+					params: { mt20id: item },
+				});
+			} catch (error) {
+				this.$router.push({ name: 'Main' });
+				// console.log(error.response.msg);
+			}
 		},
 	},
 };
 </script>
 
 <style lang="scss" scoped>
-.btn-cover {
-	margin: 1rem 0;
-	text-align: center;
+/* card list */
+.item {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 2rem;
+	width: 50%;
+}
 
-	.page-btn {
-		width: 4rem;
-		height: 2rem;
-		letter-spacing: 0.5px;
-		color: $gray-scale-0;
-		background-color: $primary-lighten-1;
-		border-radius: 5px;
+.item-image {
+	height: 0;
+	padding-bottom: 90%;
+	background-color: lightgray;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+
+.item-desc {
+	flex: 1 1 auto;
+	padding: 1rem;
+	// background-color: #fff;
+	background-color: $gray-scale-0;
+
+	h4 {
+		font-size: 13px;
 	}
-	.page-count {
+}
+
+@media (min-width: 710px) {
+	.item-list {
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0 -1rem;
+	}
+	.item {
+		width: 50%;
 		padding: 0 1rem;
+	}
+}
+
+@media (min-width: 1200px) {
+	.item {
+		width: 33.3333%;
 	}
 }
 </style>
