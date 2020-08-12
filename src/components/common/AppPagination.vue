@@ -90,7 +90,7 @@ export default {
 
 <style lang="scss" scoped>
 .pagination {
-	margin-top: 3rem;
+	margin: 1.5rem 0;
 	text-align: center;
 
 	& .page-btn {
