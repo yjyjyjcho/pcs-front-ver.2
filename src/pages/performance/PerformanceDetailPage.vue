@@ -45,9 +45,6 @@ import AppMap from '@/components/common/AppMap.vue';
 
 import PerformanceDetail from '@/components/performance/PerformanceDetail';
 
-// import { fetchPerformanceAPI } from '@/api/performance';
-import { getFacilityDetail } from '@/api/facility';
-
 import { mapState, mapActions } from 'vuex';
 
 export default {
@@ -76,17 +73,16 @@ export default {
 		this.selectedTab = this.tabs[0];
 	},
 	computed: {
-		...mapState(['performance']),
+		...mapState(['performance', 'facility']),
 	},
 	methods: {
-		...mapActions(['fetchPerformance']),
+		...mapActions(['fetchPerformance', 'fetchFacility']),
 		async fetchData() {
 			this.isLoading = true;
-			// const { data } = await fetchPerformanceAPI(this.mt20id);
 			await this.fetchPerformance(this.mt20id);
-			console.log('state에 담기는 값은: ', this.performance);
-			const facilityData = await getFacilityDetail(this.performance.mt10id);
-			const { la, lo } = facilityData.data;
+			// console.log('state에 담기는 값은: ', this.performance);
+			await this.fetchFacility(this.performance.mt10id);
+			const { la, lo } = this.facility;
 			this.center = { lat: la, lng: lo };
 			this.isLoading = false;
 		},
