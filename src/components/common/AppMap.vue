@@ -85,4 +85,20 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+.map-table {
+	border: 4px solid $primary-lighten-2;
+	td {
+		display: inline-block;
+		margin: 0 5px;
+	}
+	input {
+		color: red;
+		background: red;
+	}
+	.map-label {
+		font-size: $font-size-md;
+		font-weight: bold;
+	}
+}
+</style>
