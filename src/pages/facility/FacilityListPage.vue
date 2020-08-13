@@ -12,7 +12,7 @@
 import LoadingSpinner from '@/components/common/LoadingSpinner.vue';
 import FacilityList from '@/components/facility/FacilityList';
 
-import { getAllFacilities } from '@/api/facility.js';
+import { mapState, mapActions } from 'vuex';
 
 export default {
 	name: 'FacilityListPage',
@@ -23,18 +23,20 @@ export default {
 	data() {
 		return {
 			isLoading: false,
-			facilities: [], // 컴포넌트로 값을 전달
 		};
 	},
 	created() {
-		this.fetchInfo();
+		this.fetchData();
+	},
+	computed: {
+		...mapState(['facilities']),
 	},
 	methods: {
-		async fetchInfo() {
+		...mapActions(['fetchFacilities']),
+		async fetchData() {
 			try {
 				this.isLoading = true;
-				const { data } = await getAllFacilities();
-				this.facilities = data;
+				await this.fetchFacilities();
 				this.isLoading = false;
 			} catch (error) {
 				console.log(error);

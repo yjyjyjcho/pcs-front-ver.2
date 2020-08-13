@@ -55,7 +55,7 @@ import LoadingSpinner from '@/components/common/LoadingSpinner.vue';
 import AppTab from '@/components/common/AppTab.vue';
 import AppMap from '@/components/common/AppMap.vue';
 
-import { getFacilityDetail } from '@/api/facility';
+import { mapState, mapActions } from 'vuex';
 
 export default {
 	components: {
@@ -78,15 +78,18 @@ export default {
 		await this.getDetail();
 		this.selectedTab = this.tabs[0];
 	},
+	computed: {
+		...mapState(['facility']),
+	},
 	methods: {
+		...mapActions(['fetchFacility']),
 		async getDetail() {
 			try {
 				this.isLoading = true;
 				// 목록 컴포넌트로부터 아이템의 아이디를 받아서 넘기만 하면 됨
 				this.mt10id = this.$route.params.mt10id;
-				const { data } = await getFacilityDetail(this.mt10id);
-				console.log('뭐가 나오나..?', data);
-				this.facilityData = data;
+				// this.facilityData = data;
+				await this.fetchFacility(this.mt10id);
 				this.isLoading = false;
 				this.center = { lat: this.facilityData.la, lng: this.facilityData.lo };
 				// this.setCenter(this.facilityData.la, this.facilityData.lo);
