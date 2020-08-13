@@ -7,26 +7,33 @@
 				class="item"
 				v-for="performance in paginatedPerformances"
 				:key="performance._id"
-				@click="moveDetail(performance.mt20id)"
 			>
-				<!-- <router-link :to="`info/${performance.mt20id}`"> -->
-				<figure
-					class="item-image"
-					:style="{ backgroundImage: 'url(' + performance.poster + ')' }"
-				></figure>
-				<div class="item-desc">
-					<h4>{{ performance.prfnm }}</h4>
-					<ul class="prf-list">
-						<li>공연장명: {{ performance.fcltynm }}</li>
-						<li>
-							공연일: {{ performance.prfpdfrom }} ~
-							{{ performance.prfpdto }}
-						</li>
-						<li>연극: {{ performance.genrenm }}</li>
-						<li>공연상태: {{ performance.prfstate }}</li>
-					</ul>
-				</div>
-				<!-- </router-link> -->
+				<!-- li 태그 안에 이벤트를 사용하는 대신 a태그를 의미하는 router-link 사용 -->
+				<!-- @click="moveDetail(performance.mt20id)" -->
+				<router-link
+					:to="{
+						name: 'PerformanceDetailPage',
+						params: { mt20id: performance.mt20id },
+					}"
+					on-abort="callback"
+				>
+					<figure
+						class="item-image"
+						:style="{ backgroundImage: 'url(' + performance.poster + ')' }"
+					></figure>
+					<div class="item-desc">
+						<h4>{{ performance.prfnm }}</h4>
+						<ul class="prf-list">
+							<li>공연장명: {{ performance.fcltynm }}</li>
+							<li>
+								공연일: {{ performance.prfpdfrom }} ~
+								{{ performance.prfpdto }}
+							</li>
+							<li>연극: {{ performance.genrenm }}</li>
+							<li>공연상태: {{ performance.prfstate }}</li>
+						</ul>
+					</div>
+				</router-link>
 			</li>
 		</ul>
 	</div>
@@ -42,18 +49,19 @@ export default {
 		},
 	},
 	methods: {
-		moveDetail(item) {
-			// console.log(item);
-			try {
-				this.$router.push({
-					name: 'PerformanceDetailPage',
-					params: { mt20id: item },
-				});
-			} catch (error) {
-				this.$router.push({ name: 'Main' });
-				// console.log(error.response.msg);
-			}
-		},
+		// API 오류로 인해 경로 이동에 실패할 경우 어떻게 대처하는가?
+		// moveDetail(performanceId) {
+		// 	// console.log(performanceId);
+		// 	try {
+		// 		this.$router.push({
+		// 			name: 'PerformanceDetailPage',
+		// 			params: { mt20id: performanceId },
+		// 		});
+		// 	} catch (error) {
+		// 		this.$router.push({ name: 'Main' });
+		// 		// console.log(error.response.msg);
+		// 	}
+		// },
 	},
 };
 </script>
