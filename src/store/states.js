@@ -6,6 +6,9 @@ export default {
 	posts: [],
 	post: null,
 	// Performance state
-	performances: [], // 공연 정보 목록
+	performances: [], // 공연 목록
 	performance: null, // 공연 상세 정보
+	// Facility state
+	facilities: [], // 시설 목록
+	facility: null, // 시설 상세 정보
 };

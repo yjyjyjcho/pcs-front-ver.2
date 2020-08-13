@@ -22,3 +22,9 @@ export const DELETE_POST = 'DELETE_POST';
  */
 export const FETCH_PERFORMANCE = 'FETCH_PERFORMANCE';
 export const FETCH_PERFORMANCE_LIST = 'FETCH_PERFORMANCE_LIST';
+
+/**
+ * Facility
+ */
+export const FETCH_FACILITY = 'FETCH_FACILITY';
+export const FETCH_FACILITY_LIST = 'FETCH_FACILITY_LIST';

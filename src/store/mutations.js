@@ -18,6 +18,8 @@ import {
 	DELETE_POST,
 	FETCH_PERFORMANCE_LIST,
 	FETCH_PERFORMANCE,
+	FETCH_FACILITY_LIST,
+	FETCH_FACILITY,
 } from './mutations-types';
 
 export default {
@@ -61,5 +63,11 @@ export default {
 	},
 	[FETCH_PERFORMANCE](state, performance) {
 		state.performance = performance;
+	},
+	[FETCH_FACILITY_LIST](state, facilities) {
+		state.facilities = facilities;
+	},
+	[FETCH_FACILITY](state, facility) {
+		state.facility = facility;
 	},
 };
