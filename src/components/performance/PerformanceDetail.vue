@@ -1,8 +1,8 @@
 <template>
 	<section class="info-section">
-		<h2 class="prfm-title">
+		<h3 class="prfm-title">
 			{{ performance.prfnm }}
-		</h2>
+		</h3>
 		<div class="info-table">
 			<figure
 				class="item-image"
@@ -10,39 +10,39 @@
 			></figure>
 			<table>
 				<tr>
-					<td>기간</td>
+					<th scope="row">기간</th>
 					<td>{{ performance.prfpdfrom }} ~ {{ performance.prfpdto }}</td>
 				</tr>
 				<tr>
-					<td>장소</td>
+					<th scope="row">장소</th>
 					<td>{{ performance.fcltynm }}</td>
 				</tr>
 				<tr>
-					<td>출연진</td>
+					<th scope="row">출연진</th>
 					<td>{{ performance.prfcast }}</td>
 				</tr>
 				<tr>
-					<td>관람연령</td>
+					<th scope="row">관람연령</th>
 					<td>{{ performance.prfage }}</td>
 				</tr>
 				<tr>
-					<td>기획제작사</td>
+					<th scope="row">기획제작사</th>
 					<td>{{ performance.entrpsnm }}</td>
 				</tr>
 				<tr>
-					<td>티켓가격</td>
+					<th scope="row">티켓가격</th>
 					<td>{{ performance.pcseguidance }}</td>
 				</tr>
 				<tr>
-					<td>장르</td>
+					<th scope="row">장르</th>
 					<td>{{ performance.genrenm }}</td>
 				</tr>
 				<tr>
-					<td>공연시간</td>
+					<th scope="row">공연시간</th>
 					<td>{{ performance.dtguidance }}</td>
 				</tr>
 				<tr>
-					<td>공연상태</td>
+					<th scope="row">공연상태</th>
 					<td>{{ performance.prfstate }}</td>
 				</tr>
 			</table>
@@ -64,9 +64,10 @@ export default {
 
 <style lang="scss" scoped>
 .info-section {
-	h2.prfm-title {
-		color: $primary-lighten-2;
+	h3.prfm-title {
+		color: $primary-lighten-1;
 		margin: 10px 0;
+		font-size: 1.5rem;
 	}
 	.info-table {
 		display: flex;
@@ -86,20 +87,19 @@ export default {
 			// width: 50%;
 			margin-left: 10px;
 
-			tr > td:first-child {
+			tr > th {
 				width: 100px;
 				padding: 10px 20px 10px 10px;
 				font-weight: bold;
 				border-bottom: 1px solid $gray-scale-2;
 				background-color: $gray-scale-1;
-
-				&:last-child {
-					border-bottom: none;
-					color: red;
-				}
+				text-align: left;
 			}
-			tr > td:last-child {
+			tr > td {
 				padding: 10px 0px 10px 10px;
+			}
+			tr:last-child > th {
+				border-bottom: none;
 			}
 		}
 	}

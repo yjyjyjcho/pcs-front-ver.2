@@ -1,28 +1,28 @@
 <template>
 	<section class="info-section">
-		<h2 class="prfm-title">
+		<h3 class="prfm-title">
 			{{ facility.fcltynm }}
-		</h2>
+		</h3>
 		<div class="info-table">
 			<table>
 				<tr>
-					<td>장소</td>
+					<th scope="row">장소</th>
 					<td>{{ facility.fcltynm }}</td>
 				</tr>
 				<tr>
-					<td>시설특성</td>
+					<th scope="row">시설특성</th>
 					<td>{{ facility.fcltychartr }}</td>
 				</tr>
 				<tr>
-					<td>개관연도</td>
+					<th scope="row">개관연도</th>
 					<td>{{ facility.opende }}</td>
 				</tr>
 				<tr>
-					<td>객석수</td>
+					<th scope="row">객석수</th>
 					<td>{{ facility.seatscale }}</td>
 				</tr>
 				<tr>
-					<td>주소</td>
+					<th scope="row">주소</th>
 					<td>{{ facility.adres }}</td>
 				</tr>
 			</table>
@@ -44,9 +44,10 @@ export default {
 
 <style lang="scss" scoped>
 .info-section {
-	h2.prfm-title {
-		color: $primary-lighten-2;
+	h3.prfm-title {
+		color: $primary-lighten-1;
 		margin: 10px 0;
+		font-size: 1.5rem;
 	}
 }
 .info-table {
@@ -64,22 +65,19 @@ export default {
 	table {
 		flex-grow: 1;
 		// width: 50%;
-		margin-left: 10px;
-
-		tr > td:first-child {
+		tr > th {
 			width: 100px;
 			padding: 10px 20px 10px 10px;
 			font-weight: bold;
 			border-bottom: 1px solid $gray-scale-2;
 			background-color: $gray-scale-1;
-
-			&:last-child {
-				border-bottom: none;
-				color: red;
-			}
+			text-align: left;
 		}
-		tr > td:last-child {
+		tr > td {
 			padding: 10px 0px 10px 10px;
+		}
+		tr:last-child > th {
+			border-bottom: none;
 		}
 	}
 }
