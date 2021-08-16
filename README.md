@@ -1,10 +1,10 @@
 # pcs Front-end ver.2
-Performance Community Site Front-end 저장소입니다.
-서비스 기획부터 배포까지 모든 과정을 체험하기 위해 프로젝트를 진행하였고, 현재 **pcs ver.2** 작업을 진행 중입니다.
+공연 커뮤니티 사이트(Performance Community Site) Front-end 저장소입니다.
+서비스 기획부터 배포까지 모든 과정을 체험하기 위한 프로젝트입니다.
 
-> 아래는 이미지는 프로젝트를 소개하는 판넬입니다.  
 
 ![image](https://user-images.githubusercontent.com/60806840/88348206-c5247000-cd87-11ea-97dc-c679f2570dcd.png)
+> 위의 이미지는 프로젝트를 소개하는 판넬입니다.  
 
 ## table of contents
 - [기획](#기획)
